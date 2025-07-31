@@ -36,18 +36,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const { data, error } = await supabase
         .from('user_hotels')
         .select('role')
-        .eq('user_id', userId)
-        .limit(1)
-        .single();
+        .eq('user_id', userId);
 
-      if (error && error.code !== 'PGRST116') {
+      if (error) {
         console.error('Error fetching user role:', error);
         return;
       }
 
-      const role = data?.role || 'viewer';
-      setUserRole(role);
-      setIsSuperAdmin(role === 'super_admin');
+      // Check if user has super_admin role
+      const roles = data || [];
+      const hasSuperAdmin = roles.some(r => r.role === 'super_admin');
+      
+      if (hasSuperAdmin) {
+        setUserRole('super_admin');
+        setIsSuperAdmin(true);
+      } else {
+        // Use the first role if no super_admin
+        const role = roles[0]?.role || 'viewer';
+        setUserRole(role);
+        setIsSuperAdmin(false);
+      }
     } catch (error) {
       console.error('Error fetching user role:', error);
     }
