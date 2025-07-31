@@ -15,6 +15,7 @@ import Sales from "./pages/Sales";
 import Comparison from "./pages/Comparison";
 import Billing from "./pages/Billing";
 import Settings from "./pages/Settings";
+import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -65,10 +66,7 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <div className="text-center p-8">
-                        <h1 className="text-2xl font-bold">Occupancy Rates</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <Occupancy />
                     </Layout>
                   </ProtectedRoute>
                 }
@@ -78,10 +76,7 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <div className="text-center p-8">
-                        <h1 className="text-2xl font-bold">Sales Reports</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <Sales />
                     </Layout>
                   </ProtectedRoute>
                 }
@@ -91,10 +86,7 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <div className="text-center p-8">
-                        <h1 className="text-2xl font-bold">Before/After Comparison</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <Comparison />
                     </Layout>
                   </ProtectedRoute>
                 }
@@ -104,10 +96,7 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <div className="text-center p-8">
-                        <h1 className="text-2xl font-bold">Analytics</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <Analytics />
                     </Layout>
                   </ProtectedRoute>
                 }
