@@ -9,7 +9,9 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { Layout } from "@/components/Layout";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Revenue from "./pages/Revenue";
 import Billing from "./pages/Billing";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,10 +42,17 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <div className="text-center p-8">
-                        <h1 className="text-2xl font-bold">Revenue Analysis</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <Revenue />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Settings />
                     </Layout>
                   </ProtectedRoute>
                 }
