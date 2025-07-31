@@ -12,6 +12,7 @@ import AdminLayout from "@/components/AdminLayout";
 import Auth from "./pages/Auth";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminHotelManagement from "./pages/AdminHotelManagement";
+import AdminDataEntry from "./pages/AdminDataEntry";
 import Dashboard from "./pages/Dashboard";
 import Revenue from "./pages/Revenue";
 import Occupancy from "./pages/Occupancy";
@@ -155,10 +156,7 @@ const App = () => (
                 element={
                   <RoleBasedRoute adminOnly>
                     <AdminLayout>
-                      <div className="space-y-6">
-                        <h1 className="text-3xl font-bold tracking-tight">Data Entry</h1>
-                        <p className="text-muted-foreground">Coming soon...</p>
-                      </div>
+                      <AdminDataEntry />
                     </AdminLayout>
                   </RoleBasedRoute>
                 }
