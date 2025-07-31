@@ -10,10 +10,6 @@ import RoleBasedRoute from "@/components/RoleBasedRoute";
 import { Layout } from "@/components/Layout";
 import AdminLayout from "@/components/AdminLayout";
 import Auth from "./pages/Auth";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminUserManagement from "./pages/AdminUserManagement";
-import AdminHotelManagement from "./pages/AdminHotelManagement";
-import AdminDataEntry from "./pages/AdminDataEntry";
 import Dashboard from "./pages/Dashboard";
 import Revenue from "./pages/Revenue";
 import Occupancy from "./pages/Occupancy";
@@ -23,6 +19,10 @@ import Billing from "./pages/Billing";
 import Settings from "./pages/Settings";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminUserManagement from "./pages/AdminUserManagement";
+import AdminHotelManagement from "./pages/AdminHotelManagement";
+import AdminDataEntry from "./pages/AdminDataEntry";
 
 const queryClient = new QueryClient();
 
