@@ -66,15 +66,15 @@ const AdminHotelManagement = () => {
     e.preventDefault();
     
     try {
-      const { data, error } = await supabase
-        .from('hotels')
-        .insert([formData])
-        .select()
-        .single();
+      const { data, error } = await supabase.rpc('admin_create_hotel', {
+        hotel_name: formData.name,
+        hotel_location: formData.location,
+        hotel_description: formData.description || null
+      });
 
       if (error) throw error;
 
-      setHotels(prev => [{ ...data, user_count: 0 }, ...prev]);
+      await fetchHotels(); // Refresh the list
       setFormData({ name: '', location: '', description: '' });
       setIsAddDialogOpen(false);
       toast.success('Hotel added successfully');
@@ -90,14 +90,13 @@ const AdminHotelManagement = () => {
     }
 
     try {
-      const { error } = await supabase
-        .from('hotels')
-        .delete()
-        .eq('id', hotelId);
+      const { error } = await supabase.rpc('admin_delete_hotel', {
+        hotel_id: hotelId
+      });
 
       if (error) throw error;
 
-      setHotels(prev => prev.filter(hotel => hotel.id !== hotelId));
+      await fetchHotels(); // Refresh the list
       toast.success('Hotel deleted successfully');
     } catch (error) {
       console.error('Error deleting hotel:', error);

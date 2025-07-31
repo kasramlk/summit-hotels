@@ -771,6 +771,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_create_hotel: {
+        Args: {
+          hotel_name: string
+          hotel_location: string
+          hotel_description?: string
+        }
+        Returns: string
+      }
+      admin_delete_hotel: {
+        Args: { hotel_id: string }
+        Returns: undefined
+      }
       is_super_admin: {
         Args: { user_id?: string }
         Returns: boolean
