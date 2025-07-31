@@ -6,8 +6,12 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { HotelProvider } from "@/context/HotelContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import RoleBasedRoute from "@/components/RoleBasedRoute";
 import { Layout } from "@/components/Layout";
+import AdminLayout from "@/components/AdminLayout";
 import Auth from "./pages/Auth";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminHotelManagement from "./pages/AdminHotelManagement";
 import Dashboard from "./pages/Dashboard";
 import Revenue from "./pages/Revenue";
 import Occupancy from "./pages/Occupancy";
@@ -111,6 +115,55 @@ const App = () => (
                   </ProtectedRoute>
                 }
               />
+              
+              {/* Admin Routes */}
+              <Route
+                path="/admin"
+                element={
+                  <RoleBasedRoute adminOnly>
+                    <AdminLayout>
+                      <AdminDashboard />
+                    </AdminLayout>
+                  </RoleBasedRoute>
+                }
+              />
+              <Route
+                path="/admin/hotels"
+                element={
+                  <RoleBasedRoute adminOnly>
+                    <AdminLayout>
+                      <AdminHotelManagement />
+                    </AdminLayout>
+                  </RoleBasedRoute>
+                }
+              />
+              <Route
+                path="/admin/users"
+                element={
+                  <RoleBasedRoute adminOnly>
+                    <AdminLayout>
+                      <div className="space-y-6">
+                        <h1 className="text-3xl font-bold tracking-tight">User Management</h1>
+                        <p className="text-muted-foreground">Coming soon...</p>
+                      </div>
+                    </AdminLayout>
+                  </RoleBasedRoute>
+                }
+              />
+              <Route
+                path="/admin/data-entry"
+                element={
+                  <RoleBasedRoute adminOnly>
+                    <AdminLayout>
+                      <div className="space-y-6">
+                        <h1 className="text-3xl font-bold tracking-tight">Data Entry</h1>
+                        <p className="text-muted-foreground">Coming soon...</p>
+                      </div>
+                    </AdminLayout>
+                  </RoleBasedRoute>
+                }
+              />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

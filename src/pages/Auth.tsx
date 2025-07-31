@@ -13,7 +13,7 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('signin');
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, user, isSuperAdmin } = useAuth();
   const navigate = useNavigate();
 
   // Demo credentials
@@ -25,9 +25,14 @@ const Auth = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (user) {
-      navigate('/dashboard');
+      // Redirect based on user role
+      if (isSuperAdmin) {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     }
-  }, [user, navigate]);
+  }, [user, isSuperAdmin, navigate]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,26 +115,56 @@ const Auth = () => {
   const createDemoUser = async () => {
     setLoading(true);
     try {
-      // First try to sign up the demo user
-      const { error } = await signUp('kasra@demo.com', '123456');
+      const demoEmail = 'demo@hotel.com';
+      const demoPassword = 'demo123';
       
-      if (error && !error.message.includes('User already registered')) {
+      const { error } = await signIn(demoEmail, demoPassword);
+      if (error) {
         toast({
-          title: "Error creating demo user",
-          description: error.message,
+          title: "Demo user not found",
+          description: "Please contact administrator.",
           variant: "destructive"
         });
       } else {
         toast({
-          title: "Demo user ready!",
-          description: "You can now sign in with kasra@demo.com / 123456",
+          title: "Demo login successful!",
+          description: "Welcome to the hotel dashboard."
         });
-        setActiveTab('signin');
       }
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to create demo user",
+        description: "Demo login failed",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const createDemoAdmin = async () => {
+    setLoading(true);
+    try {
+      const adminEmail = 'admin@hotel.com';
+      const adminPassword = 'admin123';
+      
+      const { error } = await signIn(adminEmail, adminPassword);
+      if (error) {
+        toast({
+          title: "Demo admin not found",
+          description: "Please contact administrator.",
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Demo admin login successful!",
+          description: "Welcome to the admin dashboard."
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Demo admin login failed",
         variant: "destructive"
       });
     } finally {
@@ -155,21 +190,35 @@ const Auth = () => {
         {/* Demo credentials banner */}
         <Card className="border-primary/20 bg-primary/5">
           <CardContent className="p-4">
-            <div className="flex items-center justify-between">
+            <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm">
                 <Hotel className="h-4 w-4 text-primary" />
-                <span className="font-medium">Demo Account:</span>
-                <span className="text-muted-foreground">kasra@demo.com / 123456</span>
+                <span className="font-medium">Demo Accounts:</span>
               </div>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={createDemoUser}
-                disabled={loading}
-                className="bg-background/50"
-              >
-                {loading ? 'Creating...' : 'Create Demo'}
-              </Button>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <div><strong>Hotel User:</strong> demo@hotel.com / demo123</div>
+                <div><strong>Admin User:</strong> admin@hotel.com / admin123</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={createDemoUser}
+                  disabled={loading}
+                  className="bg-background/50"
+                >
+                  {loading ? 'Loading...' : 'Demo User'}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={createDemoAdmin}
+                  disabled={loading}
+                  className="bg-background/50"
+                >
+                  {loading ? 'Loading...' : 'Demo Admin'}
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
