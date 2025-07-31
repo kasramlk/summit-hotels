@@ -8,129 +8,121 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Luxury Hotel Color Palette */
-    --background: 42 33% 95%;              /* Warm ivory */
-    --foreground: 25 20% 15%;              /* Rich dark brown */
+    /* Booking.com Professional Color Palette */
+    --background: 0 0% 100%;                   /* Pure white */
+    --foreground: 215 100% 25%;                /* Resolution Blue */
 
-    --card: 0 0% 100%;                     /* Pure white */
-    --card-foreground: 25 20% 15%;         /* Rich dark brown */
+    --card: 0 0% 100%;                         /* Pure white */
+    --card-foreground: 215 100% 25%;           /* Resolution Blue */
 
-    --popover: 0 0% 100%;                  /* Pure white */
-    --popover-foreground: 25 20% 15%;      /* Rich dark brown */
+    --popover: 0 0% 100%;                      /* Pure white */
+    --popover-foreground: 215 100% 25%;        /* Resolution Blue */
 
-    /* Primary: Elegant gold/bronze */
-    --primary: 45 65% 45%;                 /* Luxurious gold */
-    --primary-foreground: 0 0% 100%;       /* White text on gold */
-    --primary-glow: 45 85% 60%;           /* Lighter gold for effects */
+    /* Primary: Booking.com Resolution Blue */
+    --primary: 215 100% 25%;                   /* #003580 */
+    --primary-foreground: 0 0% 100%;           /* White text */
 
-    /* Secondary: Deep navy elegance */
-    --secondary: 220 30% 20%;              /* Deep navy */
-    --secondary-foreground: 0 0% 100%;     /* White text on navy */
+    /* Secondary: Booking.com Cerulean */
+    --secondary: 197 100% 45%;                 /* #009fe3 */
+    --secondary-foreground: 0 0% 100%;         /* White text */
 
-    /* Muted: Soft neutrals */
-    --muted: 42 20% 88%;                   /* Light beige */
-    --muted-foreground: 25 15% 45%;        /* Medium brown */
+    /* Accent: Booking.com Selective Yellow */
+    --accent: 44 99% 50%;                      /* #feba02 */
+    --accent-foreground: 215 100% 25%;         /* Resolution Blue text */
 
-    /* Accent: Sophisticated teal */
-    --accent: 180 25% 35%;                 /* Sophisticated teal */
-    --accent-foreground: 0 0% 100%;        /* White text on teal */
+    /* Muted: Booking.com Black Squeeze */
+    --muted: 206 33% 96%;                      /* #f2f6fa */
+    --muted-foreground: 0 0% 40%;              /* #666666 - Dove Gray */
 
     /* Destructive */
-    --destructive: 0 75% 55%;              /* Rich red */
-    --destructive-foreground: 0 0% 100%;   /* White text */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 42 20% 85%;                  /* Warm light border */
-    --input: 42 15% 92%;                   /* Light input background */
-    --ring: 45 65% 45%;                    /* Gold focus ring */
+    --border: 206 33% 88%;                     /* Lighter version of muted */
+    --input: 206 33% 96%;                      /* Same as muted */
+    --ring: 215 100% 25%;                      /* Resolution Blue */
 
-    /* Sidebar luxury styling */
-    --sidebar-background: 25 20% 12%;      /* Rich dark background */
-    --sidebar-foreground: 42 33% 95%;      /* Warm ivory text */
-    --sidebar-primary: 45 65% 45%;         /* Gold accent */
-    --sidebar-primary-foreground: 0 0% 100%; /* White text */
-    --sidebar-accent: 25 15% 18%;          /* Subtle accent */
-    --sidebar-accent-foreground: 42 33% 95%; /* Warm ivory */
-    --sidebar-border: 25 15% 25%;          /* Subtle border */
-    --sidebar-ring: 45 85% 60%;            /* Gold focus ring */
+    /* Sidebar professional styling */
+    --sidebar-background: 215 100% 25%;        /* Resolution Blue */
+    --sidebar-foreground: 0 0% 100%;           /* White text */
+    --sidebar-primary: 44 99% 50%;             /* Yellow accent */
+    --sidebar-primary-foreground: 215 100% 25%; /* Blue text */
+    --sidebar-accent: 215 80% 30%;             /* Slightly lighter blue */
+    --sidebar-accent-foreground: 0 0% 100%;    /* White text */
+    --sidebar-border: 215 80% 35%;             /* Border color */
+    --sidebar-ring: 44 99% 50%;                /* Yellow focus ring */
 
-    /* Chart colors - luxury palette */
-    --chart-1: 45 65% 45%;                 /* Gold */
-    --chart-2: 220 30% 20%;                /* Navy */
-    --chart-3: 180 25% 35%;                /* Teal */
-    --chart-4: 25 45% 35%;                 /* Bronze */
-    --chart-5: 200 35% 40%;                /* Steel blue */
+    /* Chart colors - Booking.com palette */
+    --chart-1: 215 100% 25%;                   /* Resolution Blue */
+    --chart-2: 197 100% 45%;                   /* Cerulean */
+    --chart-3: 44 99% 50%;                     /* Selective Yellow */
+    --chart-4: 0 0% 40%;                       /* Dove Gray */
+    --chart-5: 206 33% 70%;                    /* Light Gray variant */
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(45 65% 45%), hsl(45 85% 60%));
-    --gradient-elegant: linear-gradient(180deg, hsl(42 33% 95%), hsl(42 20% 88%));
-    --gradient-luxury: linear-gradient(135deg, hsl(45 65% 45%) 0%, hsl(25 45% 35%) 100%);
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 100% 25%) 0%, hsl(197 100% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(44 99% 50%) 0%, hsl(44 99% 40%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(206 33% 98%) 0%, hsl(206 33% 94%) 100%);
 
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(45 65% 45% / 0.3);
-    --shadow-luxury: 0 20px 40px -15px hsl(25 20% 15% / 0.2);
-    --shadow-glow: 0 0 40px hsl(45 85% 60% / 0.4);
+    /* Professional shadows */
+    --shadow-booking: 0 2px 8px rgba(0, 53, 128, 0.1);
+    --shadow-elevated: 0 8px 24px rgba(0, 53, 128, 0.15);
+    --shadow-floating: 0 16px 48px rgba(0, 53, 128, 0.2);
 
-    /* Animations */
-    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Smooth transitions */
+    --transition-booking: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --radius: 0.75rem;
+    --radius: 8px;
   }
 
   .dark {
-    /* Dark theme with luxury feel */
-    --background: 25 20% 8%;               /* Deep dark brown */
-    --foreground: 42 33% 95%;              /* Warm ivory */
+    /* Dark theme with Booking.com colors */
+    --background: 215 100% 4%;                 /* Very dark blue */
+    --foreground: 206 33% 96%;                 /* Light gray */
 
-    --card: 25 20% 12%;                    /* Slightly lighter dark */
-    --card-foreground: 42 33% 95%;         /* Warm ivory */
+    --card: 215 100% 6%;                       /* Slightly lighter dark blue */
+    --card-foreground: 206 33% 96%;            /* Light gray */
 
-    --popover: 25 20% 12%;                 /* Slightly lighter dark */
-    --popover-foreground: 42 33% 95%;      /* Warm ivory */
+    --popover: 215 100% 6%;                    /* Slightly lighter dark blue */
+    --popover-foreground: 206 33% 96%;         /* Light gray */
 
-    /* Primary: Brighter gold for dark theme */
-    --primary: 45 85% 60%;                 /* Bright gold */
-    --primary-foreground: 25 20% 8%;       /* Dark text on gold */
-    --primary-glow: 45 95% 70%;           /* Even brighter gold */
+    --primary: 197 100% 45%;                   /* Cerulean for dark theme */
+    --primary-foreground: 215 100% 4%;         /* Dark blue text */
 
-    /* Secondary: Lighter navy */
-    --secondary: 220 40% 25%;              /* Lighter navy */
-    --secondary-foreground: 42 33% 95%;    /* Warm ivory */
+    --secondary: 215 100% 10%;                 /* Dark blue variant */
+    --secondary-foreground: 206 33% 96%;       /* Light gray */
 
-    /* Muted: Dark neutrals */
-    --muted: 25 15% 18%;                   /* Dark beige */
-    --muted-foreground: 42 20% 65%;        /* Light brown */
+    --muted: 215 100% 8%;                      /* Dark muted */
+    --muted-foreground: 206 33% 65%;           /* Medium gray */
 
-    /* Accent: Brighter teal */
-    --accent: 180 35% 45%;                 /* Brighter teal */
-    --accent-foreground: 25 20% 8%;        /* Dark text */
+    --accent: 44 99% 50%;                      /* Yellow remains bright */
+    --accent-foreground: 215 100% 4%;          /* Dark blue text */
 
-    /* Destructive */
-    --destructive: 0 75% 55%;              /* Rich red */
-    --destructive-foreground: 42 33% 95%;  /* Warm ivory */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 206 33% 96%;
 
-    /* Borders and inputs */
-    --border: 25 15% 25%;                  /* Dark border */
-    --input: 25 15% 15%;                   /* Dark input */
-    --ring: 45 85% 60%;                    /* Bright gold ring */
+    --border: 215 100% 12%;                    /* Dark border */
+    --input: 215 100% 12%;                     /* Dark input */
+    --ring: 197 100% 45%;                      /* Cerulean ring */
 
     /* Sidebar dark styling */
-    --sidebar-background: 25 20% 8%;       /* Deep dark background */
-    --sidebar-foreground: 42 33% 95%;      /* Warm ivory text */
-    --sidebar-primary: 45 85% 60%;         /* Bright gold */
-    --sidebar-primary-foreground: 25 20% 8%; /* Dark text */
-    --sidebar-accent: 25 15% 15%;          /* Dark accent */
-    --sidebar-accent-foreground: 42 33% 95%; /* Warm ivory */
-    --sidebar-border: 25 15% 20%;          /* Dark border */
-    --sidebar-ring: 45 85% 60%;            /* Bright gold ring */
+    --sidebar-background: 215 100% 4%;
+    --sidebar-foreground: 206 33% 96%;
+    --sidebar-primary: 44 99% 50%;
+    --sidebar-primary-foreground: 215 100% 4%;
+    --sidebar-accent: 215 100% 8%;
+    --sidebar-accent-foreground: 206 33% 96%;
+    --sidebar-border: 215 100% 10%;
+    --sidebar-ring: 44 99% 50%;
 
-    /* Chart colors - dark theme */
-    --chart-1: 45 85% 60%;                 /* Bright gold */
-    --chart-2: 220 50% 65%;                /* Light navy */
-    --chart-3: 180 45% 55%;                /* Light teal */
-    --chart-4: 25 55% 55%;                 /* Light bronze */
-    --chart-5: 200 45% 60%;                /* Light steel blue */
+    /* Chart colors for dark theme */
+    --chart-1: 197 100% 45%;                   /* Cerulean */
+    --chart-2: 44 99% 50%;                     /* Yellow */
+    --chart-3: 206 33% 80%;                    /* Light gray */
+    --chart-4: 215 100% 60%;                   /* Light blue */
+    --chart-5: 180 50% 60%;                    /* Teal variant */
   }
 }
 
@@ -146,25 +138,49 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .luxury-gradient {
-    background: var(--gradient-luxury);
+  .booking-gradient {
+    background: var(--gradient-primary);
   }
   
-  .elegant-shadow {
-    box-shadow: var(--shadow-elegant);
+  .booking-shadow {
+    box-shadow: var(--shadow-booking);
   }
   
-  .luxury-shadow {
-    box-shadow: var(--shadow-luxury);
+  .elevated-shadow {
+    box-shadow: var(--shadow-elevated);
   }
   
-  .glow-effect {
-    box-shadow: var(--shadow-glow);
+  .floating-shadow {
+    box-shadow: var(--shadow-floating);
   }
 
   .glass-effect {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .booking-card {
+    @apply bg-card border border-border rounded-lg booking-shadow;
+    transition: var(--transition-booking);
+  }
+
+  .booking-card:hover {
+    @apply elevated-shadow;
+    transform: translateY(-2px);
+  }
+
+  .booking-button {
+    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-lg;
+    transition: var(--transition-booking);
+  }
+
+  .booking-button:hover {
+    @apply elevated-shadow;
+    transform: translateY(-1px);
+  }
+
+  .stats-gradient {
+    background: var(--gradient-subtle);
   }
 }
