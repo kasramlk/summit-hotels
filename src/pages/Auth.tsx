@@ -19,7 +19,7 @@ const Auth = () => {
   // Demo credentials
   useEffect(() => {
     setEmail('kasra@demo.com');
-    setPassword('kasra');
+    setPassword('123456');
   }, []);
 
   // Redirect if already authenticated
@@ -111,7 +111,7 @@ const Auth = () => {
     setLoading(true);
     try {
       // First try to sign up the demo user
-      const { error } = await signUp('kasra@demo.com', 'kasra');
+      const { error } = await signUp('kasra@demo.com', '123456');
       
       if (error && !error.message.includes('User already registered')) {
         toast({
@@ -122,7 +122,7 @@ const Auth = () => {
       } else {
         toast({
           title: "Demo user ready!",
-          description: "You can now sign in with kasra@demo.com / kasra",
+          description: "You can now sign in with kasra@demo.com / 123456",
         });
         setActiveTab('signin');
       }
@@ -159,7 +159,7 @@ const Auth = () => {
               <div className="flex items-center space-x-2 text-sm">
                 <Hotel className="h-4 w-4 text-primary" />
                 <span className="font-medium">Demo Account:</span>
-                <span className="text-muted-foreground">kasra@demo.com / kasra</span>
+                <span className="text-muted-foreground">kasra@demo.com / 123456</span>
               </div>
               <Button 
                 variant="outline" 
