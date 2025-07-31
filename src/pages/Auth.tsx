@@ -13,7 +13,7 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('signin');
-  const { signIn, signUp, user, isSuperAdmin } = useAuth();
+  const { signIn, signUp, user, isSuperAdmin, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
   // Demo credentials
@@ -24,15 +24,15 @@ const Auth = () => {
 
   // Redirect if already authenticated
   useEffect(() => {
-    if (user) {
-      // Redirect based on user role
+    // Only redirect if user exists and we're not loading roles
+    if (user && !authLoading) {
       if (isSuperAdmin) {
         navigate('/admin');
       } else {
         navigate('/dashboard');
       }
     }
-  }, [user, isSuperAdmin, navigate]);
+  }, [user, isSuperAdmin, authLoading, navigate]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -33,13 +33,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Fetch user role when user changes
   const fetchUserRole = async (userId: string) => {
     try {
-      console.log('Fetching role for user:', userId);
       const { data, error } = await supabase
         .from('user_hotels')
         .select('role')
         .eq('user_id', userId);
-
-      console.log('Role query result:', { data, error });
 
       if (error) {
         console.error('Error fetching user role:', error);
@@ -49,8 +46,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // Check if user has super_admin role
       const roles = data || [];
       const hasSuperAdmin = roles.some(r => r.role === 'super_admin');
-      
-      console.log('Roles found:', roles, 'Has super admin:', hasSuperAdmin);
       
       if (hasSuperAdmin) {
         setUserRole('super_admin');
