@@ -19,7 +19,8 @@ import {
   Building2,
   Settings,
   PieChart,
-  GitCompare
+  GitCompare,
+  CreditCard
 } from 'lucide-react';
 
 const navigationItems = [
@@ -120,8 +121,21 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Settings */}
-        <div className="mt-auto p-4 border-t border-sidebar-border">
+        {/* Settings & Billing */}
+        <div className="mt-auto p-4 border-t border-sidebar-border space-y-2">
+          <SidebarMenuButton
+            asChild
+            className={`w-full ${
+              isActive('/billing')
+                ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                : 'text-sidebar-foreground hover:bg-sidebar-accent/50'
+            }`}
+          >
+            <NavLink to="/billing" className="flex items-center space-x-3 p-3">
+              <CreditCard className="h-5 w-5" />
+              {!collapsed && <span className="text-sm">Billing</span>}
+            </NavLink>
+          </SidebarMenuButton>
           <SidebarMenuButton
             asChild
             className="w-full text-sidebar-foreground hover:bg-sidebar-accent/50"

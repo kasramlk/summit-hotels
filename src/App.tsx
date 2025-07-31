@@ -9,6 +9,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { Layout } from "@/components/Layout";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Billing from "./pages/Billing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -95,6 +96,16 @@ const App = () => (
                         <h1 className="text-2xl font-bold">Analytics</h1>
                         <p className="text-muted-foreground">Coming soon...</p>
                       </div>
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/billing"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Billing />
                     </Layout>
                   </ProtectedRoute>
                 }
