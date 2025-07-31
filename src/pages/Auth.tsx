@@ -60,7 +60,7 @@ const Auth = () => {
           title: "Welcome back!",
           description: "Successfully signed in to your hotel dashboard."
         });
-        navigate('/dashboard');
+        // Don't navigate here - let the useEffect handle role-based navigation
       }
     } catch (error) {
       toast({
