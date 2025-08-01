@@ -18,6 +18,7 @@ import Comparison from "./pages/Comparison";
 import Billing from "./pages/Billing";
 import Settings from "./pages/Settings";
 import Analytics from "./pages/Analytics";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUserManagement from "./pages/AdminUserManagement";
@@ -114,6 +115,14 @@ const App = () => (
                     <Layout>
                       <Billing />
                     </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/analytics-dashboard"
+                element={
+                  <ProtectedRoute>
+                    <AnalyticsDashboard />
                   </ProtectedRoute>
                 }
               />

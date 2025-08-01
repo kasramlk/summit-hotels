@@ -16,11 +16,6 @@ const Auth = () => {
   const { signIn, signUp, user, isSuperAdmin, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
-  // Demo credentials
-  useEffect(() => {
-    setEmail('kasra@demo.com');
-    setPassword('123456');
-  }, []);
 
   // Redirect if already authenticated
   useEffect(() => {
