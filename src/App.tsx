@@ -122,7 +122,9 @@ const App = () => (
                 path="/analytics-dashboard"
                 element={
                   <ProtectedRoute>
-                    <AnalyticsDashboard />
+                    <Layout>
+                      <AnalyticsDashboard />
+                    </Layout>
                   </ProtectedRoute>
                 }
               />

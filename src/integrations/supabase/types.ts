@@ -185,6 +185,39 @@ export type Database = {
           },
         ]
       }
+      daily_analytics: {
+        Row: {
+          adr: number | null
+          analytics_date: string
+          channel_name: string
+          created_at: string | null
+          hotel_id: string
+          id: string
+          reservations_count: number | null
+          revenue: number | null
+        }
+        Insert: {
+          adr?: number | null
+          analytics_date: string
+          channel_name: string
+          created_at?: string | null
+          hotel_id: string
+          id?: string
+          reservations_count?: number | null
+          revenue?: number | null
+        }
+        Update: {
+          adr?: number | null
+          analytics_date?: string
+          channel_name?: string
+          created_at?: string | null
+          hotel_id?: string
+          id?: string
+          reservations_count?: number | null
+          revenue?: number | null
+        }
+        Relationships: []
+      }
       fb_revenue: {
         Row: {
           bar_revenue: number | null
@@ -228,6 +261,39 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      future_bookings: {
+        Row: {
+          adr: number | null
+          booking_month: string
+          channel_name: string
+          created_at: string | null
+          hotel_id: string
+          id: string
+          reservations_count: number | null
+          revenue: number | null
+        }
+        Insert: {
+          adr?: number | null
+          booking_month: string
+          channel_name: string
+          created_at?: string | null
+          hotel_id: string
+          id?: string
+          reservations_count?: number | null
+          revenue?: number | null
+        }
+        Update: {
+          adr?: number | null
+          booking_month?: string
+          channel_name?: string
+          created_at?: string | null
+          hotel_id?: string
+          id?: string
+          reservations_count?: number | null
+          revenue?: number | null
+        }
+        Relationships: []
       }
       guest_surveys: {
         Row: {
@@ -509,6 +575,48 @@ export type Database = {
           },
         ]
       }
+      profiles: {
+        Row: {
+          created_at: string | null
+          department: string | null
+          email: string
+          full_name: string | null
+          hire_date: string | null
+          id: string
+          phone: string | null
+          position: string | null
+          status: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          department?: string | null
+          email: string
+          full_name?: string | null
+          hire_date?: string | null
+          id?: string
+          phone?: string | null
+          position?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          department?: string | null
+          email?: string
+          full_name?: string | null
+          hire_date?: string | null
+          id?: string
+          phone?: string | null
+          position?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       room_types: {
         Row: {
           amenities: string[] | null
@@ -771,6 +879,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_assign_user_to_hotel: {
+        Args: {
+          target_user_id: string
+          target_hotel_id: string
+          user_role?: string
+        }
+        Returns: undefined
+      }
       admin_create_hotel: {
         Args: {
           hotel_name: string
@@ -781,6 +897,10 @@ export type Database = {
       }
       admin_delete_hotel: {
         Args: { hotel_id: string }
+        Returns: undefined
+      }
+      admin_remove_user_from_hotel: {
+        Args: { target_user_id: string; target_hotel_id: string }
         Returns: undefined
       }
       is_super_admin: {
